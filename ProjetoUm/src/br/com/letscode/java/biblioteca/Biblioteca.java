@@ -7,7 +7,7 @@ import java.util.List;
 public class Biblioteca<Livros> {
     private String nome;
     private String local;
-    private List<Livros> livro;
+    private ArrayList <Livros> livro = new ArrayList<Livros>();
 
     public Biblioteca(){}
 
@@ -36,7 +36,7 @@ public class Biblioteca<Livros> {
         this.local = local;
     }
 
-    public void setLivros(List<Livros> livro) {
+    public void setLivros(ArrayList<Livros> livro) {
         this.livro = livro;
     }
 
@@ -48,15 +48,16 @@ public class Biblioteca<Livros> {
                 '}';
     }
 
-    public void CadastrarLivro(String isbn, String titulo, String autor, String editora){
-        Livros  livroNovo = new Livros();
+    public void AdicionarLivro(Livros livroNovo){
         this.livro.add(livroNovo);
-    }
-
-    public void EmprestarLivro( Pessoa pessoa, Livros livro, int qtd){
 
 
     }
+
+//    public void EmprestarLivro( Pessoa pessoa, Livros livro, int qtd){
+//
+//
+//    }
 
 
 }
