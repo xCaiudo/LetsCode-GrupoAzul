@@ -1,16 +1,16 @@
 package br.com.letscode.java.biblioteca.emprestimo;
-import br.com.letscode.java.biblioteca.usuario.UsuarioDefault;
+import br.com.letscode.java.biblioteca.usuario.Usuario;
 import br.com.letscode.java.biblioteca.livros.Livros;
 import java.time.LocalDate;
 
 public class LivroEmprestimo {
     private LocalDate dataEmprestimo;
-    private UsuarioDefault user;
+    private Usuario user;
     private Livros liv;
 
     public LivroEmprestimo(){}
 
-    public LivroEmprestimo(LocalDate dataEmprestimo, UsuarioDefault user, Livros liv) {
+    public LivroEmprestimo(LocalDate dataEmprestimo, Usuario user, Livros liv) {
         this.dataEmprestimo = dataEmprestimo;
         this.user = user;
         this.liv = liv;
@@ -20,7 +20,7 @@ public class LivroEmprestimo {
         return dataEmprestimo;
     }
 
-    public UsuarioDefault getUser() {
+    public Usuario getUser() {
         return user;
     }
 
@@ -32,7 +32,7 @@ public class LivroEmprestimo {
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public void setUser(UsuarioDefault user) {
+    public void setUser(Usuario user) {
         this.user = user;
     }
 
