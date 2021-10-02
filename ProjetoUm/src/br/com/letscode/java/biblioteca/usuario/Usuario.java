@@ -1,4 +1,4 @@
 package br.com.letscode.java.biblioteca.usuario;
 
-public class Usuario {
+public interface Usuario {
 }
