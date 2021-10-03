@@ -12,17 +12,17 @@ public class Aplicacao {
     public static void main(String[] args) {
 	// write your code here
         Biblioteca bibliotecaEscolar = new Biblioteca("Biblioteca","Zona Norte");
-        Livros livroUm = new Livros("12312","algo","algo","algo");
-        Livros livroDois = new Livros("12312","algo2","algo","algo");
-        Livros livroTres = new Livros("12312","algo2","algo","algo");
-        Livros livroQuatro = new Livros("12312","algo2","algo","algo");
-        Livros livroCinco = new Livros("12312","algo2","algo","algo");
-        Livros livroSeis = new Livros("12312","algo2","algo","algo");
-        Livros livroSete = new Livros("12312","algo2","algo","algo");
-        Livros livroOito = new Livros("12312","algo2","algo","algo");
-        Livros livroNove = new Livros("12312","algo2","algo","algo");
-        Livros livroDez = new Livros("12312","algo2","algo","algo");
-        Livros livroOnze = new Livros("12312","algo2","algo","algo");
+        Livros livroUm = new Livros("12316","LivroA","AutorA","EditoraA");
+        Livros livroDois = new Livros("123198","LivroB","AutorB","EditoraB");
+        Livros livroTres = new Livros("1232456","LivroC","AutorC","EditoraC");
+        Livros livroQuatro = new Livros("123935","LivroD","AutorD","EditoraD");
+        Livros livroCinco = new Livros("12369546","LivroE","AutorE","EditoraE");
+        Livros livroSeis = new Livros("123235","LivroF","AutorF","EditoraF");
+        Livros livroSete = new Livros("1231221","LivroG","AutorG","EditoraG");
+        Livros livroOito = new Livros("12312124","LivroH","AutorH","EditoraH");
+        Livros livroNove = new Livros("1231267","LivroI","AutorI","EditoraI");
+        Livros livroDez = new Livros("1231296","LivroJ","AutorJ","EditoraJ");
+        Livros livroOnze = new Livros("1231234","LivroK","AutorK","EditoraK");
         Aluno usuarioAluno = new Aluno("Aluno",23112321,"231321");
         Professor usuarioProfessor = new Professor("Professor", 1212122, "adsadsadsadsa");
 
@@ -58,17 +58,35 @@ public class Aplicacao {
             e.printStackTrace();
         }
 
+        try {
+            usuarioAluno.EscolherLivro(livroUm, bibliotecaEscolar);
+            usuarioAluno.EscolherLivro(livroQuatro, bibliotecaEscolar);
+            usuarioAluno.EscolherLivro(livroNove, bibliotecaEscolar);
+            bibliotecaEscolar.EmprestarLivro(usuarioAluno);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int qtdLivroEmprestadoAluno = usuarioAluno.getLivroEmprestado().size();
 
         System.out.println( livroCinco.getEstado());
+        int qtdLivroEmprestadoProfessor = usuarioProfessor.getLivroEmprestado().size();
 
-        System.out.println(usuarioProfessor.getLivroEmprestado().size());
-        System.out.println(usuarioProfessor.getCarrinhoLivros().size());
+        System.out.println("Teste tamanho Array livroEmprestado Professor " + qtdLivroEmprestadoProfessor);
+        System.out.println("Teste tamanho Array livrosCarrinho Professor " + usuarioProfessor.getCarrinhoLivros().size());
+
+        for(int i = 0; i < qtdLivroEmprestadoProfessor; i++){
+            System.out.println(usuarioProfessor.getLivroEmprestado().get(i).getLivro());
+        }
+
+        System.out.println("Teste tamanho Array livrosEmprestado Aluno " + qtdLivroEmprestadoAluno);
+        System.out.println("Teste tamanho Array livrosCarrinho Aluno " + usuarioAluno.getCarrinhoLivros().size());
+
+        for(int i = 0; i < qtdLivroEmprestadoAluno; i++){
+            System.out.println(usuarioAluno.getLivroEmprestado().get(i).getLivro());
+        }
 
         System.out.println(bibliotecaEscolar.getLivros().size());
-
-
-
-
 
 
 

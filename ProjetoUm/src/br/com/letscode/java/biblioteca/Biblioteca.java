@@ -68,7 +68,8 @@ public class Biblioteca {
 
         int qtd = usuario.getCarrinhoLivros().size();
         if (usuario instanceof Aluno){
-            if (usuario.getLivroEmprestado().size() > 0){
+            int qtdLivroEmprestado = usuario.getLivroEmprestado().size();
+            if (qtdLivroEmprestado > 0){
                 throw new AlunoJaTemEmprestimoException();
             }else {
                 for(int i = 0; i<qtd;i++){
