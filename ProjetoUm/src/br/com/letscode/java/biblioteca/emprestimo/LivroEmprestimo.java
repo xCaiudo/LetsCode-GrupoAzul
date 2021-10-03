@@ -47,8 +47,6 @@ public class LivroEmprestimo {
         this.livro = livro;
     }
 
-    public LivroEmprestimo(){}
-
     public LivroEmprestimo(LocalDate dataEmprestimo, Usuario usuario, Livros livro) {
         this.dataEmprestimo = dataEmprestimo;
         this.usuario = usuario;

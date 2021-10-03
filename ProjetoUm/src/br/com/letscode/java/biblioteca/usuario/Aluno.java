@@ -9,12 +9,13 @@ import java.util.ArrayList;
 
 public class Aluno  extends Usuario{
 
-    public Aluno(Usuario usuario) {
-        super(usuario);
+
+
+    public Aluno(String nome, int matricula, String email) {
+        super(nome, matricula, email);
     }
-    public void AdicionarLivro(LivroEmprestimo livroNovo) {
-        this.livroEmprestado.add(livroNovo);
-    }
+
+
 
     @Override
     public void RealizarDevolucao(ArrayList<LivroEmprestimo> livroEmprestado) {
