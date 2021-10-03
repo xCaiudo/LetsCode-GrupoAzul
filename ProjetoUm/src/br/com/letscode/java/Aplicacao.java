@@ -31,6 +31,8 @@ public class Aplicacao {
         }
 
         System.out.println(teste.getLivroEmprestado().size());
+        System.out.println(liv.getEstado());
+        System.out.println(liv2.getEstado());
 
 
        System.out.println(teste.getLivroEmprestado());
