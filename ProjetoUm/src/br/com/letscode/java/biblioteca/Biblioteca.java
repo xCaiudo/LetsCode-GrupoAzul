@@ -2,8 +2,6 @@ package br.com.letscode.java.biblioteca;
 
 import br.com.letscode.java.biblioteca.emprestimo.LivroEmprestimo;
 import br.com.letscode.java.biblioteca.livros.EstadoLivro;
-import br.com.letscode.java.biblioteca.livros.LivroAlugadoException;
-import br.com.letscode.java.biblioteca.livros.LivroNaoExisteException;
 import br.com.letscode.java.biblioteca.livros.Livros;
 import br.com.letscode.java.biblioteca.usuario.Aluno;
 import br.com.letscode.java.biblioteca.usuario.Usuario;

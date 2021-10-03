@@ -16,7 +16,7 @@ public abstract class Usuario {
     private int matricula;
     private String email;
     private LocalDate tempoSuspensao;
-    private ArrayList<Livros> carrinhoLivros = new ArrayList<>();
+    final private ArrayList<Livros> carrinhoLivros = new ArrayList<>();
     protected ArrayList<LivroEmprestimo> livroEmprestado = new ArrayList<>();
 
     public Usuario(String nome, int matricula, String email) {

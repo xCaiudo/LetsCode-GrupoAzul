@@ -5,7 +5,7 @@ import br.com.letscode.java.biblioteca.livros.EstadoLivro;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
+
 
 public class Professor extends Usuario {
 
@@ -26,7 +26,9 @@ public class Professor extends Usuario {
             long dataDiferenca = ChronoUnit.DAYS.between(data, entrega);
             LocalDate dataSuspensao = entrega.plusDays(dataDiferenca);
             setTempoSuspensao(dataSuspensao);
+
         }
-        this.livroEmprestado.clear();
+        livroEmprestado.clear();
+
     }
 }
