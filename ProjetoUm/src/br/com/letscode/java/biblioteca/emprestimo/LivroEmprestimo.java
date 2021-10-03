@@ -1,8 +1,10 @@
 package br.com.letscode.java.biblioteca.emprestimo;
+
 import br.com.letscode.java.biblioteca.usuario.Aluno;
 import br.com.letscode.java.biblioteca.usuario.Professor;
 import br.com.letscode.java.biblioteca.usuario.Usuario;
 import br.com.letscode.java.biblioteca.livros.Livros;
+
 import static java.time.DayOfWeek.SATURDAY;
 import static java.time.DayOfWeek.SUNDAY;
 
@@ -53,19 +55,19 @@ public class LivroEmprestimo {
         this.livro = livro;
 
 
-        if (this.usuario instanceof Aluno){
-            this.diasUteis= 10;
-        }
-        else if(this.usuario instanceof Professor){
+        if (this.usuario instanceof Aluno) {
+            this.diasUteis = 10;
+        } else if (this.usuario instanceof Professor) {
             this.diasUteis = 20;
         }
-       this.dataParaDevolucao = CalculaDataDevolucao(this.diasUteis, this.dataEmprestimo);
+        this.dataParaDevolucao = CalculaDataDevolucao(this.diasUteis, this.dataEmprestimo);
     }
+
     private static LocalDate CalculaDataDevolucao(int diasUteisDesejado, LocalDate dataEmprestimo) {
         LocalDate data = dataEmprestimo;
         int diasUteis = 0;
 
-        while(diasUteis < diasUteisDesejado) {
+        while (diasUteis < diasUteisDesejado) {
             data = data.plusDays(1);
             if (isDiaUtil(data)) {
                 diasUteis++;
@@ -78,6 +80,7 @@ public class LivroEmprestimo {
         DayOfWeek dayOfWeek = data.getDayOfWeek();
         return !(SATURDAY.equals(dayOfWeek) || SUNDAY.equals(dayOfWeek) || isFeriado(data));
     }
+
     private static boolean isFeriado(LocalDate data) {
         List<Feriado> feriados = getFeriados();
         for (Feriado f : feriados) {
@@ -90,15 +93,15 @@ public class LivroEmprestimo {
 
     private static List<Feriado> getFeriados() {
         List<Feriado> feriadosList = new ArrayList<>();
-        feriadosList.add(new Feriado(LocalDate.of(2021, 1, 1),"Confraternização Universal"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 4, 2),"Páscoa"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 4, 21),"Tiradentes"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 5, 1),"Dia do Trabalho"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 9, 7),"Independência"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 10, 12),"Padroeira do Brasil"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 11, 2),"Finados"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 11, 15),"Proclamação da República"));
-        feriadosList.add(new Feriado(LocalDate.of(2021, 12, 25),"Natal"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 1, 1), "Confraternização Universal"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 4, 2), "Páscoa"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 4, 21), "Tiradentes"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 5, 1), "Dia do Trabalho"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 9, 7), "Independência"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 10, 12), "Padroeira do Brasil"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 11, 2), "Finados"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 11, 15), "Proclamação da República"));
+        feriadosList.add(new Feriado(LocalDate.of(2021, 12, 25), "Natal"));
         return feriadosList;
     }
 }

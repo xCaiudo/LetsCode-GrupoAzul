@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
-public class Professor extends Usuario{
+public class Professor extends Usuario {
 
     public Professor(String nome, int matricula, String email) {
         super(nome, matricula, email);
@@ -15,19 +15,18 @@ public class Professor extends Usuario{
 
 
     @Override
-    public void RealizarDevolucao(ArrayList<LivroEmprestimo> livroEmprestado) {
-            for(LivroEmprestimo livro : livroEmprestado){
-                livro.getLivro().setEstado(EstadoLivro.DISPONIVEL);
-
-            }
-            LocalDate data = LocalDate.now();
-            LocalDate entrega = livroEmprestado.get(0).getDataParaDevolucao();
-            if(entrega.isAfter(data)){
-                long dataDiferenca = ChronoUnit.DAYS.between(entrega, data);
-                LocalDate dataSuspensao = entrega.plusDays(dataDiferenca);
-                setTempoSuspensao(dataSuspensao);
-            }
-
+    public void RealizarDevolucao() {
+        for (LivroEmprestimo livro : livroEmprestado) {
+            livro.getLivro().setEstado(EstadoLivro.DISPONIVEL);
         }
 
+        LocalDate data = LocalDate.now();
+        LocalDate entrega = livroEmprestado.get(0).getDataParaDevolucao();
+        if (data.isAfter(entrega)) {
+            long dataDiferenca = ChronoUnit.DAYS.between(data, entrega);
+            LocalDate dataSuspensao = entrega.plusDays(dataDiferenca);
+            setTempoSuspensao(dataSuspensao);
+        }
+        this.livroEmprestado.clear();
     }
+}

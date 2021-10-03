@@ -13,17 +13,11 @@ import java.util.ArrayList;
 
 public abstract class Usuario {
     private String nome;
-    private  int matricula;
+    private int matricula;
     private String email;
     private LocalDate tempoSuspensao;
     private ArrayList<Livros> carrinhoLivros = new ArrayList<>();
-
-    public void setTempoSuspensao(LocalDate tempoSuspensao) {
-        this.tempoSuspensao = tempoSuspensao;
-    }
-
     protected ArrayList<LivroEmprestimo> livroEmprestado = new ArrayList<>();
-
 
     public Usuario(String nome, int matricula, String email) {
         this.nome = nome;
@@ -31,7 +25,9 @@ public abstract class Usuario {
         this.email = email;
     }
 
-
+    public void setTempoSuspensao(LocalDate tempoSuspensao) {
+        this.tempoSuspensao = tempoSuspensao;
+    }
     public LocalDate getTempoSuspensao() {
         return tempoSuspensao;
     }
@@ -68,25 +64,25 @@ public abstract class Usuario {
         return livroEmprestado;
     }
 
-    public void EscolherLivro (Livros livro, Biblioteca biblioteca) throws Exception {
-        if (carrinhoLivros.size() == 3){
+    public void EscolherLivro(Livros livro, Biblioteca biblioteca) throws Exception {
+        if (carrinhoLivros.size() == 3) {
             throw new MaximoLivroDeUmaVezException();
         }
-        if (!biblioteca.getLivros().contains(livro)){
+        if (!biblioteca.getLivros().contains(livro)) {
             throw new LivroNaoExisteException();
         }
-        if(livro.getEstado().equals(EstadoLivro.ALUGADO)){
+        if (livro.getEstado().equals(EstadoLivro.ALUGADO)) {
             throw new LivroAlugadoException();
         }
 
         this.carrinhoLivros.add(livro);
     }
+
     public void AdicionarLivro(LivroEmprestimo livroNovo) {
         this.livroEmprestado.add(livroNovo);
     }
 
 
-    public abstract void RealizarDevolucao(ArrayList<LivroEmprestimo> livroEmprestado);
-
+    public abstract void RealizarDevolucao();
 
 }
