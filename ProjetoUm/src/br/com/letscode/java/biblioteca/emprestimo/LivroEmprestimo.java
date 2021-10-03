@@ -16,7 +16,7 @@ import java.util.List;
 
 public class LivroEmprestimo {
     private LocalDate dataEmprestimo;
-    private LocalDate dataParaDevolucao;
+    final private LocalDate dataParaDevolucao;
     private Usuario usuario;
     private Livros livro;
     private int diasUteis;
