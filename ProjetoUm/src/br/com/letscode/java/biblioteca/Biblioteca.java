@@ -76,7 +76,9 @@ public class Biblioteca {
                     LivroEmprestimo novoLivroEmprestimo = new LivroEmprestimo(data,usuario,livroTemp);
                     usuario.AdicionarLivro(novoLivroEmprestimo);
                     livroTemp.setEstado(EstadoLivro.ALUGADO);
+
                 }
+                usuario.getCarrinhoLivros().clear();
             }
         }
         else{
@@ -90,6 +92,7 @@ public class Biblioteca {
                     usuario.AdicionarLivro(novoLivroEmprestimo);
                     livroTemp.setEstado(EstadoLivro.ALUGADO);
                 }
+                usuario.getCarrinhoLivros().clear();
 
             }
         }
