@@ -75,6 +75,7 @@ public class Biblioteca {
                     Livros livroTemp = usuario.getCarrinhoLivros().get(i);
                     LivroEmprestimo novoLivroEmprestimo = new LivroEmprestimo(data,usuario,livroTemp);
                     usuario.AdicionarLivro(novoLivroEmprestimo);
+                    livroTemp.setEstado(EstadoLivro.ALUGADO);
                 }
             }
         }
@@ -87,6 +88,7 @@ public class Biblioteca {
                     Livros livroTemp = usuario.getCarrinhoLivros().get(i);
                     LivroEmprestimo novoLivroEmprestimo = new LivroEmprestimo(data,usuario,livroTemp);
                     usuario.AdicionarLivro(novoLivroEmprestimo);
+                    livroTemp.setEstado(EstadoLivro.ALUGADO);
                 }
 
             }
