@@ -1,13 +1,21 @@
 package br.com.letscode.java.biblioteca;
+import br.com.letscode.java.biblioteca.emprestimo.LivroEmprestimo;
+import br.com.letscode.java.biblioteca.livros.EstadoLivro;
+import br.com.letscode.java.biblioteca.livros.LivroAlugadoException;
+import br.com.letscode.java.biblioteca.livros.LivroNaoExisteException;
 import br.com.letscode.java.biblioteca.livros.Livros;
+import br.com.letscode.java.biblioteca.usuario.Aluno;
+import br.com.letscode.java.biblioteca.usuario.Usuario;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 
-public class Biblioteca<Livros> {
+
+public class Biblioteca {
     private String nome;
     private String local;
-    private ArrayList <Livros> livro = new ArrayList<Livros>();
+    private ArrayList <Livros> livro = new ArrayList<>();
 
     public Biblioteca(){}
 
@@ -24,7 +32,7 @@ public class Biblioteca<Livros> {
         return local;
     }
 
-    public List<Livros> getLivros() {
+    public ArrayList<Livros> getLivros() {
         return livro;
     }
 
@@ -54,10 +62,38 @@ public class Biblioteca<Livros> {
 
     }
 
-//    public void EmprestarLivro( Pessoa pessoa, Livros livro, int qtd){
-//
-//
-//    }
+    public void EmprestarLivro(Usuario usuario) throws Exception{
+        LocalDate data = LocalDate.now();
+
+
+        int qtd = usuario.getCarrinhoLivros().size();
+        if (usuario instanceof Aluno){
+            if (usuario.getLivroEmprestado().size() > 0){
+                throw new AlunoJaTemEmprestimoException();
+            }else {
+                for(int i = 0; i<qtd;i++){
+                    Livros livroTemp = usuario.getCarrinhoLivros().get(i);
+                    LivroEmprestimo novoLivroEmprestimo = new LivroEmprestimo(data,usuario,livroTemp);
+                    usuario.AdicionarLivro(novoLivroEmprestimo);
+                }
+            }
+        }
+        else{
+            if((usuario.getLivroEmprestado().size() + qtd) > 5){
+                throw new MaxLivroProfessorException();
+            }
+            else{
+                for(int i = 0; i<qtd;i++){
+                    Livros livroTemp = usuario.getCarrinhoLivros().get(i);
+                    LivroEmprestimo novoLivroEmprestimo = new LivroEmprestimo(data,usuario,livroTemp);
+                    usuario.AdicionarLivro(novoLivroEmprestimo);
+                }
+
+            }
+        }
+
+
+    }
 
 
 }

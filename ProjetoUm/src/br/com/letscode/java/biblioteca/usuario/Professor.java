@@ -8,12 +8,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Professor extends Usuario{
-    private ArrayList<LivroEmprestimo> livroEmprestado = new ArrayList<LivroEmprestimo>();
-    public Professor(Usuario usuario){
-        super(usuario);
-    }
-    public void AdicionarLivro(LivroEmprestimo livroNovo) {
-        this.livroEmprestado.add(livroNovo);
+
+    public Professor(String nome, int matricula, String email) {
+        super(nome, matricula, email);
     }
 
 
