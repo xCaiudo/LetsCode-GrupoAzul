@@ -23,6 +23,10 @@ public class LivroEmprestimo {
         return dataEmprestimo;
     }
 
+    public LocalDate getDataParaDevolucao() {
+        return dataParaDevolucao;
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }

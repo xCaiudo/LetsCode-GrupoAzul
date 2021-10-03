@@ -1,17 +1,30 @@
 package br.com.letscode.java.biblioteca.usuario;
 
+import br.com.letscode.java.biblioteca.emprestimo.LivroEmprestimo;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public abstract class Usuario {
     private String nome;
     private  int matricula;
     private String email;
+    private LocalDate tempoSuspensao;
 
-    public Usuario(){
+    public void setTempoSuspensao(LocalDate tempoSuspensao) {
+        this.tempoSuspensao = tempoSuspensao;
     }
+
+    protected ArrayList<LivroEmprestimo> livroEmprestado = new ArrayList<LivroEmprestimo>();
+
 
     public Usuario(String nome, int matricula, String email) {
         this.nome = nome;
         this.matricula = matricula;
         this.email = email;
+    }
+
+    public Usuario(Usuario usuario) {
     }
 
     public String getNome() {
@@ -38,9 +51,12 @@ public abstract class Usuario {
         this.email = email;
     }
 
-    public abstract void RealizarDevolucao();
+    public ArrayList<LivroEmprestimo> getLivroEmprestado() {
+        return livroEmprestado;
+    }
 
 
+    public abstract void RealizarDevolucao(ArrayList<LivroEmprestimo> livroEmprestado);
 
 
 }
