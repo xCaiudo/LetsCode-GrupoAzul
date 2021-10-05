@@ -5,3 +5,9 @@ O código de devolução do Usuario-Aluno e Usuario-Professor está com uma vari
 LocalDate dataSuspensao = entrega.plusDays(dataDiferenca); deveria ser LocalDate dataSuspensao = data.plusDays(dataDiferenca); 
 
 pois a lógica certa é apartir do dia qu entregou e não da data que deveria ser a entrega.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Devido a autorização do professor foi feito a correção mesmo após a entrega.
