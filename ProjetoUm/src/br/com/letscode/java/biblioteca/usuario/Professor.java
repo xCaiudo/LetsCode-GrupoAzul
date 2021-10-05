@@ -24,7 +24,7 @@ public class Professor extends Usuario {
         LocalDate entrega = livroEmprestado.get(0).getDataParaDevolucao();
         if (data.isAfter(entrega)) {
             long dataDiferenca = ChronoUnit.DAYS.between(data, entrega);
-            LocalDate dataSuspensao = entrega.plusDays(dataDiferenca);
+            LocalDate dataSuspensao = data.plusDays(dataDiferenca);
             setTempoSuspensao(dataSuspensao);
 
         }
